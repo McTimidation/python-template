@@ -27,7 +27,7 @@ def test_armor_init_value():
 # Is the default hit point value equal to 0
 def test_hp_init_value():
     brian = Char('brian')
-    assert brian.hit_points == 0
+    assert brian.hit_points == 5
 
 # Is the default experience (xp) equal to 0
 def test_xp_init():
@@ -50,4 +50,23 @@ def test_abilities_init_values():
     for value in gary.abilities.values():
         assert value == 10
 
+def test_modifier_tuple_length():
+    jon = Char('jon')
+    assert len(jon.modifier) == 20
 
+# test checks that each modifer in list has a value
+def test_modifer_list_values():
+    jon = Char('jon')
+    for i in range(len(jon.modifier_list)):
+        assert jon.modifier_list[i] != None
+
+# Current modifier cmod has a value of 0 
+
+def test_cmod_value():
+    dan = Char('dan')
+    assert dan.cmod == 0
+
+def test_modify_method():
+    carl = Char('carl')
+    carl.__mod__(19)
+    assert carl.modifier == 4
