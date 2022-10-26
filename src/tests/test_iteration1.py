@@ -52,7 +52,7 @@ def test_abilities_init_values():
 
 def test_modifier_tuple_length():
     jon = Char('jon')
-    assert len(jon.modifier) == 20
+    assert len(jon.modifier_list) == 20
 
 # test checks that each modifer in list has a value
 def test_modifer_list_values():
@@ -64,9 +64,84 @@ def test_modifer_list_values():
 
 def test_cmod_value():
     dan = Char('dan')
-    assert dan.cmod == 0
+    assert dan.modifier == 0
 
 def test_modify_method():
     carl = Char('carl')
-    carl.__mod__(19)
+    carl.__mod__("dexterity",19)
     assert carl.modifier == 4
+
+def test_abilities_modifiers():
+    dan = Char('dan')
+    dan.__mod__('strength', 2)
+    assert dan.abilities['strength'] == 6
+
+#  Attack Method
+
+# Does Attack method increase self.xp by 10
+def test_attack_method():
+    dan = Char('dan')
+    jon = Char('jon')
+    dan.attack(12,jon)
+    assert dan.xp == 10
+# Does opp (jon) hit_points decrease by dan.attack_value default (1)
+def test_attack_on_opp():
+    dan = Char('dan')
+    jon = Char('jon')
+    dan.attack(12, jon)
+    assert jon.hit_points == 4
+    
+# Does attack_value double if a roll is greater than 19
+def test_double_attack():
+    dan = Char('dan')
+    jon = Char('jon')
+    dan.attack(20,jon)
+    assert jon.hit_points == 3
+
+# Does roll equal or is greater than opp(jon).armor then sub opp.hit_points - self(dan).attack_value
+def test_hit_attack():
+    dan = Char('dan')
+    jon = Char('jon')
+    dan.attack(15,jon)
+    assert jon.hit_points == 4 
+
+# Does opp(jon) hit_points stay at 5 if a roll is below opp(jon).armor
+def test_miss_attack():
+    dan = Char('dan')
+    jon = Char('jon')
+    dan.attack(8,jon)
+    assert jon.hit_points == 5
+
+def test_attack_outcomes():
+    dan = Char('dan')
+    jon = Char('jon')
+    dan.attack(12, jon)
+    assert dan.xp == 10 and jon.hit_points == 4
+
+def test_attack_outcomes_miss():
+    dan = Char('dan')
+    jon = Char('jon')
+    dan.attack(4, jon)
+    assert dan.xp == 0 and jon.hit_points == 5
+
+### 
+
+### Check xp Method
+
+# is xp incremented after a successful attack
+def test_level_up_after_attack():
+    dan = Char('dan')
+    jon = Char('jon')
+    for x in range(100):
+        dan.attack(10, jon)
+        
+    assert dan.level == 2 and dan.xp == 0
+
+# Does xp reset to 0 once it hits 1000 or greater
+
+# Does level increase by one evertime xp is greater then 999
+
+# Does HP increase by +5 every time xp is greater then 999
+
+# Does attack_value increase by 1 everytime xp 999
+ 
