@@ -13,7 +13,7 @@ To complete the assignment, you must complete the following:
 ---
 
 #  #Iteration 1 - Core
-## Character 
+## Character - Python Class
 
 
 - Name - a string, something obnoxious and medevial
@@ -23,7 +23,7 @@ To complete the assignment, you must complete the following:
     > Array to organize the types of alignments and setAligment fn() and a var that holds Current_Alignment
 
 - Armor Class and Hit points - health - integers
-   > Obj that holds 
+   > two vars int
 
 - Can Attack - function() that gives damage to other characters or NPCs
    - Need value of opponents armor class
