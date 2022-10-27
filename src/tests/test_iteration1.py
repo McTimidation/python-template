@@ -180,5 +180,25 @@ def test_attack_value_increase():
         Attack(18, dan, jon)   
     assert dan.attack_value == 3
 
+def test_failed_attack_with_strength_modifier():
+    dan = Char('dan', strength = 7)
+    jon = Char('jon')
+    Attack(11, dan, jon)
+    assert jon.hit_points == 5 and dan.xp == 0
 
- 
+def test_attack_with_strength_modifier():
+    dan = Char('dan', strength = 19)
+    jon = Char('jon')
+    Attack(7, dan, jon)
+    assert jon.hit_points == 4 and dan.xp == 10
+
+def test_dead_people_cant_talk():
+    dan = Char('dan', strength = 19)
+    jon = Char('jon')
+    Attack(7, dan, jon)
+    Attack(7, dan, jon)
+    Attack(7, dan, jon)
+    Attack(7, dan, jon)
+    Attack(7, dan, jon)
+    Attack(10, jon, dan)
+    assert dan.hit_points == 5 and jon.xp == 0

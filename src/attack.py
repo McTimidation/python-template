@@ -1,7 +1,8 @@
 
 class Attack:
     def __init__(self, roll, pred, opp):
-        if roll >= opp.armor:
+        roll += pred.strength.mod
+        if roll >= opp.armor and pred.hit_points > 0:
             pred.xp += 10
             self.check_xp(pred)
             if roll == 20:

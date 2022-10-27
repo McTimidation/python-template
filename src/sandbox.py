@@ -1,36 +1,38 @@
 from sandboxClass import Ability
 from enum import Enum
+from character import Char
+from attack import Attack
 #Testing pytest & debug
 
-class Abilities(Enum): 
-    STRENGTH = 1
-    DEXTERITY = 2
-    WISDOM = 3
-    CONSTITUTION = 4
-    INTELLIGENCE= 5
-    CHARISMA = 6
+# class Abilities(Enum): 
+#     STRENGTH = 1
+#     DEXTERITY = 2
+#     WISDOM = 3
+#     CONSTITUTION = 4
+#     INTELLIGENCE= 5
+#     CHARISMA = 6
 
 
 
 
-class Crab:
+# class Crab:
     
-    def __init__(self):
-        self.abilities = dict()
-        pass
-    def set_abilities(self, **abilities):
+#     def __init__(self):
+#         self.abilities = dict()
+#         pass
+#     def set_abilities(self, **abilities):
 
-        self.strength = Ability('strength', strength)
-        self.wis = Ability('wis', wis)
-        self.dex = Ability('dex', dex)
-        self.const = Ability('const', const)
-        self.char = Ability('char', char)
-        self.intell = Ability('intell', intell)
+#         self.strength = Ability('strength', strength)
+#         self.wis = Ability('wis', wis)
+#         self.dex = Ability('dex', dex)
+#         self.const = Ability('const', const)
+#         self.char = Ability('char', char)
+#         self.intell = Ability('intell', intell)
 
-    def loop_enum(self):
-        for x in Abilities: 
-            
-            print(x)
+#     def loop_enum(self):
+#         for x in Abilities: 
+
+#             print(x)
         # self.name = name
         # self.hp = 5
         # self.abilities = {
@@ -46,9 +48,18 @@ class Crab:
     #     self.Dexterity = Claws()
 
 
-sebastian = Crab()
-# print(sebastian.abilities['strength'])
-# print(sebastian.strength.score)
-print(Abilities.DEXTERITY.value)
-print(Abilities(2))
-sebastian.loop_enum()
+# dan = Char('dan', strength = 19)
+# jon = Char('jon')
+# Attack(7, dan, jon)
+# Attack(7, dan, jon)
+# Attack(7, dan, jon)
+# Attack(7, dan, jon)
+# Attack(7, dan, jon)
+# print(jon.hit_points)
+# Attack(7, dan, jon)
+# print(jon.hit_points)
+# Attack(7, dan, jon)
+# print(jon.hit_points)
+# Attack(7, dan, jon)
+# print(jon.hit_points)
+
