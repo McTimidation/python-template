@@ -205,6 +205,6 @@ def test_dead_people_cant_talk():
 
 # Set alignment str using array and **kwargs value
 def test_set_alignment_kwarg():
-    dan = Char('dan', 'lawful good')
+    dan = Char('dan', lawful_good='lawful good')
     assert dan.align == 'lawful good' 
 

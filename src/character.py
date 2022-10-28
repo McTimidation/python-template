@@ -12,7 +12,16 @@ class Char:
         "intelligence": 10,
         "charisma": 10
     }
-    ALIGNMENT = {'lawful good', 'lawful neutral', 'lawful evil', 'neutral good', 'true neutral', 'neutral evi', 'chaotic good', 'chaotic neutral', 'chaotic evil'}
+    ALIGNMENT = {
+            'lawful_good': 'lawful good',
+            'lawful_neutral': 'lawful neutral',
+            'lawful_evil': 'lawful evil',
+            'neutral_good': 'neutral good',
+            'true_neutral': 'true neutral',
+            'neutral_evil': 'neutral evil',
+            'chaotic_good': 'chaotic good',
+            'chaotic_neutral': 'chaotic neutral',
+            'chaotic_evil': 'chaotic evil'}
     def __init__(self, name, **kwargs):
         self.name = name
         self.armor = 10
@@ -23,15 +32,23 @@ class Char:
         for a in Char.ABILITIES:
             if a in kwargs:
                 value = kwargs[a]
+                # print(a, 'a')
+                # print(kwargs[a], 'kwA')
+                
             else:
                 value = Char.ABILITIES[a]
             setattr(self, a, Abilities(value))
+
+        align = "true neutral"
         for a in Char.ALIGNMENT:
+            # print(a)
+            # print(kwargs)
+
             if a in kwargs:
-                self.align = a
-            else:
-                self.align = 'true neutral'
+                align = Char.ALIGNMENT[a]
+                print('align in if',align)
+
+        setattr(self, 'align', align)
+        print('self.align',self.align)
             
-
-
 
