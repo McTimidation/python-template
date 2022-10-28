@@ -45,3 +45,7 @@ To complete the assignment, you must complete the following:
 
 ---
 
+![pseudo](pseudophoto/20221026_095813.jpg)
+![as](pseudophoto/20221026_095830.jpg)
+![as](pseudophoto/20221028_091909.jpg)
+![as](pseudophoto/20221028_091937.jpg)
