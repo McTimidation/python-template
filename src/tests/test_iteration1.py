@@ -18,7 +18,7 @@ def test_char_name():
 # Check that character alignment is = "neutral"
 def test_char_align():
     garth = Char('garth')
-    assert garth.align == 'neutral' or 'good' or 'evil'
+    assert garth.align == 'true neutral' or 'good' or 'evil'
     
 
 # Is the default value of armor_class equal to 10 int
@@ -202,3 +202,9 @@ def test_dead_people_cant_talk():
     Attack(7, dan, jon)
     Attack(10, jon, dan)
     assert dan.hit_points == 5 and jon.xp == 0
+
+# Set alignment str using array and **kwargs value
+def test_set_alignment_kwarg():
+    dan = Char('dan', lawful_good='lawful good')
+    assert dan.align == 'lawful good' 
+
