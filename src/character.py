@@ -41,9 +41,6 @@ class Char:
 
         align = "true neutral"
         for a in Char.ALIGNMENT:
-            # print(a)
-            # print(kwargs)
-
             if a in kwargs:
                 align = Char.ALIGNMENT[a]
                 print('align in if',align)
